@@ -3,7 +3,7 @@ const expect = require('chai').expect;
 //const MongoMemoryServer = require('mongodb-memory-server').MongoMemoryServer;
 const mongoose = require('mongoose');
 
-describe('Department', () => {
+/*describe('Department', () => {
 
   before(async () => {
 
@@ -24,4 +24,4 @@ describe('Department', () => {
     mongoose.models = {};
   });
 
-});
+});*/
