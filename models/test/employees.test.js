@@ -72,11 +72,11 @@ describe('Employee', () => {
   
   });
 
-  /*it('should not throw an error if "department" is okay', () => {
+  it('should not throw an error if "department" is okay', () => {
 
     const cases = ['Management', 'Human Resources'];
     for(let department of cases) {
-      const emp = new Employee({ department });
+      const emp = new Employee({ firstName: 'xx', lastName: 'xx', department });
   
       emp.validate(err => {
         expect(err).to.not.exist;
@@ -84,7 +84,7 @@ describe('Employee', () => {
   
     }
   
-  });*/
+  });
   after(() => {
     mongoose.models = {};
   });
