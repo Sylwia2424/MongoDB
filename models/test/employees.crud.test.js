@@ -34,10 +34,10 @@ describe('Employee', () => {
     });
     
     it('should return all the data with "find" method', async () => {
-      //const dep = new Department({ name: 'Department #1'});
-      //await dep.save();
-      const employees = await Employee.find();
-      const expectedLength = 2;
+      const dep = new Department({ name: 'Department #1'});
+      await dep.save();
+      const employees = await Employee.find({ firstName: 'Employee #1', lastName: 'lastName', department: 'id'});
+      const expectedLength = 1;
       expect(employees.length).to.be.equal(expectedLength);
     });      
       
@@ -135,9 +135,9 @@ describe('Employee', () => {
     });
   
     it('should properly remove one document with "remove" method', async () => {
-      const employee = await Employee.findOne({firstName: 'Employee #1'});
-      await employee.remove();
-      const removedEmployee = await Employee.findOne({firstName: 'Employee #1'});
+      //const employee = await Employee.findOne({firstName: 'Employee #1'});
+      await Employee.remove({firstName: 'Employee #1', lastName: 'lastName', department: 'id' });
+      const removedEmployee = await Employee.findOne({firstName: '=Employee #1=', lastName: '=lastName=', department: '=id='});
       expect(removedEmployee).to.be.null;
     });
   
