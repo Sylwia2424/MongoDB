@@ -34,10 +34,10 @@ describe('Employee', () => {
     });
     
     it('should return all the data with "find" method', async () => {
-      const dep = new Department({ name: 'Department #1'});
-      await dep.save();
+      //const dep = new Department({ name: 'Department #1'});
+      //await dep.save();
       const employees = await Employee.find();
-      const expectedLength = 1;
+      const expectedLength = 2;
       expect(employees.length).to.be.equal(expectedLength);
     });      
       
