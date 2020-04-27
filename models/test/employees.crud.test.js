@@ -29,24 +29,25 @@ describe('Employee', () => {
       const testEmpOne = new Employee({ firstName: 'Employee #1', lastName: 'lastName', department: 'id'  });
       await testEmpOne.save();
 
-      const testEmpTwo = new Employee({ firstName: 'Employee #1', lastName: 'lastName', department: 'id'  });
+      const testEmpTwo = new Employee({ firstName: 'Employee #2', lastName: 'lastName2', department: 'id2'  });
       await testEmpTwo.save();
     });
     
     it('should return all the data with "find" method', async () => {
-      const dep = new Department({ name: 'Department #1'});
-      await dep.save();
-      const employees = await Employee.find({ firstName: 'Employee #1', lastName: 'lastName', department: 'id'});
+      //const dep = new Department({ name: 'Department #1'});
+      //await dep.save();
+      const employees = await Employee.find();
       const expectedLength = 1;
       expect(employees.length).to.be.equal(expectedLength);
+
     });      
       
     it('should return a proper document by "firsName", "lastName", "department" with "findOne" method', async () => {
-      const employees = await Employee.findOne({ firstName: 'Employee #1', lastName: 'lastName', department: 'id'});
-      const expectedfirstName = 'Employee #1';
-      const expectedlastName = 'lastName';
-      const expecteddepartment = 'id';
-      expect(employees.firstName, employees.lastName, employees.department).to.be.equal('Employee #1','lastName', 'id');
+      const employees = await Employee.findOne({ firstName: 'Employee #2', lastName: 'lastName2', department: 'id2'});
+      const expectedFirstName = 'Employee #2';
+      const expectedlastName = 'lastName2';
+      const expecteddepartment = 'id2';
+      expect(employees.firstName, employees.lastName, employees.department).to.be.equal( 'Employee #2', 'lastName2', 'id2');
     });
 
     after(async () => {
@@ -76,7 +77,7 @@ describe('Employee', () => {
       const testEmpOne = new Employee({ firstName: 'Employee #1', lastName: 'lastName', department: 'id' });
       await testEmpOne.save();
     
-      const testEmpTwo = new Employee({ firstName: 'Employee #1', lastName: 'lastName', department: 'id' });
+      const testEmpTwo = new Employee({ firstName: 'Employee #2', lastName: 'lastName2', department: 'id2' });
       await testEmpTwo.save();
     });
 
@@ -124,7 +125,7 @@ describe('Employee', () => {
       const testEmpOne = new Employee({ firstName: 'Employee #1', lastName: 'lastName', department: 'id' });
       await testEmpOne.save();
     
-      const testEmpTwo = new Employee({ firstName: 'Employee #1', lastName: 'lastName', department: 'id'});
+      const testEmpTwo = new Employee({ firstName: 'Employee #2', lastName: 'lastName2', department: 'id2'});
       await testEmpTwo.save();
     });
 
