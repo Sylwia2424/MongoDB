@@ -26,10 +26,10 @@ describe('Employee', () => {
       const dep = new Department({ name: 'Department #1'});
       await dep.save();
 
-      const testEmpOne = new Employee({ firstName: 'Employee #1', lastName: 'lastName', department: 'id'  });
+      const testEmpOne = new Employee({ firstName: 'Employee #1', lastName: 'lastName', department: 'id'});
       await testEmpOne.save();
 
-      const testEmpTwo = new Employee({ firstName: 'Employee #2', lastName: 'lastName2', department: 'id2'  });
+      const testEmpTwo = new Employee({ firstName: 'John', lastName: 'Doe', department: 'id2'  });
       await testEmpTwo.save();
     });
     
@@ -37,17 +37,17 @@ describe('Employee', () => {
       //const dep = new Department({ name: 'Department #1'});
       //await dep.save();
       const employees = await Employee.find();
-      const expectedLength = 1;
+      const expectedLength = 2;
       expect(employees.length).to.be.equal(expectedLength);
 
     });      
       
     it('should return a proper document by "firsName", "lastName", "department" with "findOne" method', async () => {
-      const employees = await Employee.findOne({ firstName: 'Employee #2', lastName: 'lastName2', department: 'id2'});
-      const expectedFirstName = 'Employee #2';
-      const expectedlastName = 'lastName2';
+      const employees = await Employee.findOne({ firstName: 'John', lastName: 'Doe', department: 'id2'});
+      const expectedFirstName = 'John';
+      const expectedlastName = 'Doe';
       const expecteddepartment = 'id2';
-      expect(employees.firstName, employees.lastName, employees.department).to.be.equal( 'Employee #2', 'lastName2', 'id2');
+      expect(employees.firstName, employees.lastName, employees.department).to.be.equal( 'John', 'Doe', 'id2');
     });
 
     after(async () => {
