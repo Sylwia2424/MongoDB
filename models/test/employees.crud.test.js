@@ -44,9 +44,6 @@ describe('Employee', () => {
       
     it('should return a proper document by "firsName", "lastName", "department" with "findOne" method', async () => {
       const employees = await Employee.findOne({ firstName: 'John', lastName: 'Doe', department: 'id2'});
-      const expectedFirstName = 'John';
-      const expectedlastName = 'Doe';
-      const expecteddepartment = 'id2';
       expect(employees.firstName, employees.lastName, employees.department).to.be.equal( 'John', 'Doe', 'id2');
     });
 
